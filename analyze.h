@@ -22,3 +22,5 @@ void displayHighRiskPatients(Patient patients[], int nbPatients);
 void displayGeneralStatistics(Patient patients[], int nbPatients);
 
 void generateReport(Patient patients[], int nbPatients, const char *filename);
+
+#endif

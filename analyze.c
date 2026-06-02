@@ -1,11 +1,16 @@
 #include "analyze.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 float meanAge(Patient patients[], int nbPatients){
     int sumAge = 0;
     for(int i = 0; i < nbPatients; i++){
         sumAge += patients[i].age;
     }
-    return (float)sumAge / nbPatients;
+    printf("Sum Age: %d\n", sumAge);
+    float mean_Age = (float) sumAge / nbPatients;
+    printf("Mean Age: %.2f\n", mean_Age);
+    return mean_Age;
 }
 
 float meanGlucose(Patient patients[], int nbPatients){
@@ -84,15 +89,19 @@ void displayRiskLevel(Patient p, int index){
 
 void displayHighRiskPatients(Patient patients[], int nbPatients){
     printf("Patients at Risk of Diabetes:\n");
+    int patientHighRiskCount = 0;
     for(int i = 0; i < nbPatients; i++){
         if(calculateRiskScore(patients[i]) >= 4){
             displayPatient(patients[i], i);
+            patientHighRiskCount++;
         }
     }
+    printf("Number of High-Risk Patients: %d\n", patientHighRiskCount);
 }
 
 void displayGeneralStatistics(Patient patients[], int nbPatients){
-    printf("General Statistics:\n");
+    printf("\n===== General Statistics =====\n");
+    printf("Total Patients: %d\n", nbPatients);
     printf("Average Age: %.2f\n", meanAge(patients, nbPatients));
     printf("Average Glucose: %.2f\n", meanGlucose(patients, nbPatients));
     printf("Average BMI: %.2f\n", meanBmi(patients, nbPatients));
