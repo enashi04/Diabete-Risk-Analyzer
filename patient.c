@@ -39,3 +39,23 @@ int  readPatientsFromCSV(const char* filename, Patient patients[]){
     return patientCount;
 }
 
+void displayPatient(Patient patient, int index){
+    printf("Patient %d:\n", index + 1);
+    printf("  Pregnancies: %d\n", patient.pregnancies);
+    printf("  Glucose: %d\n", patient.glucose);
+    printf("  Blood Pressure: %d\n", patient.bloodPressure);
+    printf("  Skin Thickness: %d\n", patient.skinThickness);
+    printf("  Insulin: %d\n", patient.insulin);
+    printf("  BMI: %.2f\n", patient.bmi);
+    printf("  Diabetes Pedigree Function: %.2f\n", patient.diabetesPedigreeFunction);
+    printf("  Age: %d\n", patient.age);
+    printf("  Outcome: %d\n", patient.outcome);
+}
+
+//all patients
+void displayAllPatients(Patient patients[], int countPatients){
+    for(int i = 0; i < countPatients; i++){
+        displayPatient(patients[i], i);
+    }
+}
+
