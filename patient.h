@@ -1,7 +1,7 @@
 #ifndef PATIENT_H
 #define PATIENT_H
 
-// #define MAX_PATIENTS 1000
+#define MAX_PATIENTS 1000
 
 typedef struct {
     int pregnancies;
